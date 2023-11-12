@@ -80,7 +80,7 @@ else:
 st.write('Here is the list of cars with characteristics')
 st.dataframe(filtered_data)
 
-fig = px.sunburst(data, path=['car_manufacturer', 'type'], values = 'price', color='avg_price', 
+fig = px.sunburst(filtered_data, path=['car_manufacturer', 'type'], values = 'price', color='avg_price', 
                   title = 'Total price manufacturer & type')
 fig.update_layout(title = {'font':dict(size = 25),
                           'x':0.47,
@@ -88,14 +88,14 @@ fig.update_layout(title = {'font':dict(size = 25),
 st.plotly_chart(fig)
 
 
-fig1 = px.scatter(data, x="price", y="odometer", color="type", facet_col="condition", title = 'Price & odometer')
+fig1 = px.scatter(filtered_data, x="price", y="odometer", color="type", facet_col="condition", title = 'Price & odometer')
 fig1.update_layout(title = {'font':dict(size = 25),
                           'x':0.47,
                           'y':0.93})
 st.plotly_chart(fig1)
 
 
-fig2 = px.histogram(data, x="d_listed_group", y="quantity", template = "simple_white", color="car_manufacturer", title = 'Week of purchase')
+fig2 = px.histogram(filtered_data, x="d_listed_group", y="quantity", template = "simple_white", color="car_manufacturer", title = 'Week of purchase')
 fig2.update_layout(title = {'font':dict(size = 25),
                           'x':0.47,
                           'y':0.93},
@@ -103,7 +103,7 @@ fig2.update_layout(title = {'font':dict(size = 25),
 st.plotly_chart(fig2)
 
 
-fig3 = px.scatter(data, x="price", y="car_age", marginal_x="histogram", title = 'Price & car age')
+fig3 = px.scatter(filtered_data, x="price", y="car_age", marginal_x="histogram", title = 'Price & car age')
 fig.update_layout(title = {'font':dict(size = 25),
                           'x':0.47,
                           'y':0.93})
