@@ -27,10 +27,10 @@ data['avg_price'] = data['avg_price'].fillna(data.groupby(['car_manufacturer', '
 
 data['quantity']=1
 
-data.is_4wd = data.is_4wd.replace(1, 'yes')
-data.is_4wd = data.is_4wd.fillna('no')
+data.is_4wd = data.is_4wd.replace(1, "yes")
+data.is_4wd = data.is_4wd.fillna("no")
 
-data = data.fillna('unknown')
+data = data.fillna("unknown")
 
 def assign_dlisted_group(days_listed):
     if days_listed>=0 and days_listed<=7:
