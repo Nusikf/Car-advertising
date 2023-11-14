@@ -22,11 +22,6 @@ data.odometer = data['odometer'].fillna(0).astype('int')
 
 data = data[(data.price>500) & (data.price<34600) & (data.car_age<24)]
 
-data.is_4wd = data.is_4wd.replace(1, 'yes')
-data.is_4wd = data.is_4wd.fillna('no')
-
-data = data.fillna('unknown')
-
 data['avg_price']=np.nan
 data['avg_price'] = data['avg_price'].fillna(data.groupby(['car_manufacturer', 'type'])['price'].transform('mean')).astype('int')
 
