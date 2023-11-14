@@ -22,6 +22,11 @@ data.odometer = data['odometer'].fillna(0).astype('int')
 
 data = data[(data.price>500) & (data.price<34600) & (data.car_age<24)]
 
+data.is_4wd = data.is_4wd.replace(1, 'yes')
+data.is_4wd = data.is_4wd.fillna('no')
+
+data = data.fillna('unknown')
+
 data['avg_price']=np.nan
 data['avg_price'] = data['avg_price'].fillna(data.groupby(['car_manufacturer', 'type'])['price'].transform('mean')).astype('int')
 
@@ -77,13 +82,7 @@ if new_cars:
 else:
     filtered_data=data[data.price.isin(actual_range)]
 
-car_mileage = st.checkbox('Carmileage less 600')
 
-if car_mileage:
-    filtered_data=data[data.price.isin(actual_range)]
-    filtered_data=filtered_data[data.odometer<=600]
-else:
-    filtered_data=data[data.price.isin(actual_range)]
     
 st.write('Here is the list of cars with characteristics')
 st.dataframe(filtered_data)
