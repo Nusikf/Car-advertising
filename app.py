@@ -84,7 +84,7 @@ else:
 
     
 st.write('Here is the list of cars with characteristics')
-st.dataframe(filtered_data)
+st.dataframe(filtered_data.iloc[:,0:11])
 
 fig = px.sunburst(filtered_data, path=['car_manufacturer', 'type'], values = 'price', color='avg_price', 
                   title = 'Total price manufacturer & type')
