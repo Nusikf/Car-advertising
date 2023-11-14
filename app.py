@@ -81,7 +81,7 @@ car_mileage = st.checkbox('Carmileage less 200')
 
 if car_mileage:
     filtered_data=data[data.price.isin(actual_range)]
-    filtered_data=filtered_data[data.car_mileage<=200]
+    filtered_data=filtered_data[data.odometer<=200]
 else:
     filtered_data=data[data.price.isin(actual_range)]
     
