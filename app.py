@@ -76,6 +76,14 @@ if new_cars:
     filtered_data=filtered_data[data.car_age<=5]
 else:
     filtered_data=data[data.price.isin(actual_range)]
+
+car_mileage = st.checkbox('Carmileage less 200')
+
+if car_mileage:
+    filtered_data=data[data.price.isin(actual_range)]
+    filtered_data=filtered_data[data.car_mileage<=200]
+else:
+    filtered_data=data[data.price.isin(actual_range)]
     
 st.write('Here is the list of cars with characteristics')
 st.dataframe(filtered_data)
