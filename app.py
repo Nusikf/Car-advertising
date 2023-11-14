@@ -77,7 +77,7 @@ if new_cars:
 else:
     filtered_data=data[data.price.isin(actual_range)]
 
-car_mileage = st.checkbox('Carmileage less 200')
+car_mileage = st.checkbox('Carmileage less 600')
 
 if car_mileage:
     filtered_data=data[data.price.isin(actual_range)]
